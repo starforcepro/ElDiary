@@ -1,0 +1,61 @@
+﻿@model ElDiary.Models.AddContactViewModel
+
+<div class="modal fade" id="AddContactWindow" role="dialog">
+    <div class="modal-dialog" style="width: 400px;">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Добавление контакта</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    @using (Ajax.BeginForm("AddContact", "Contacts", new AjaxOptions
+                    {
+                        UpdateTargetId = "contacts",
+                        OnSuccess = "HideAddContactWindow"
+                    }))
+                    {
+                        <div style="padding-bottom: 5px;">
+                            @Html.TextBoxFor(x => x.Name, new Dictionary<string, object>
+                                 {
+                                     {"placeholder", "Имя"},
+                                     {"style", "min-width: 100%;"},
+                                 })
+                            @Html.ValidationMessageFor(x => x.Name)<br />
+                        </div>
+                        <div style="padding-bottom: 5px;">
+                            @Html.TextBoxFor(x => x.Phone, new Dictionary<string, object>
+                            {
+                                {"placeholder", "Телефон"},
+                                {"style", "min-width: 100%;"},
+                            })
+                            @Html.ValidationMessageFor(x => x.Phone)<br />
+                        </div>
+                        <div style="padding-bottom: 5px;">
+                            @Html.TextBoxFor(x => x.Email, new Dictionary<string, object>
+                            {
+                                {"placeholder", "Электропочта"},
+                                {"style", "min-width: 100%;"},
+                            })
+                            @Html.ValidationMessageFor(x => x.Email)<br />
+                        </div>
+
+                        <input type="submit" value="Добавить" class="btn btn-default" style="padding-bottom: 5px;">
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    function HideAddContactWindow() {
+        $('#AddContactWindow').modal('hide');
+    }
+</script>
+

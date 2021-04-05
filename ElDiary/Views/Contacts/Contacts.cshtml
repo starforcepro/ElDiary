@@ -1,0 +1,94 @@
+﻿@model ElDiary.Models.ContactsViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title ElDIary</title>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div style="margin-top:20px">
+        <table id="contacts" class="display">
+            <thead>
+                <tr>                   
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Электропочта</th>
+                    <th class="hidden">Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Contacts)
+            {
+                    <tr>
+                        <td>@Html.DisplayFor(x => item.Name)</td>
+                        <td>@Html.DisplayFor(x => item.Phone)</td>
+                        <td>@Html.DisplayFor(x => item.Email)</td>
+                        <td>
+                            <input type="button" class="btn btn-default" value="Удалить контакт" />
+                            <div class="hidden">
+                                @Html.DisplayFor(x => item.Id)
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("table").on("click",
+            ".btn",
+            function () {
+                var currentContact = $(this).parent().parent();
+                var guidOfContact = $(this).parent().find(".hidden").text().trim();
+                console.log(guidOfContact);
+                console.log(currentContact);
+
+                $.ajax({
+                    type: "POST",
+                    url: "../contacts/recievedata",
+                    contentType: 'application/json',
+                    data: JSON.stringify({ guidOfContact: guidOfContact })
+                });
+
+                $(currentContact).remove();
+            });
+    });
+
+    $(function() {
+        $("#contacts").dataTable({
+            language: {
+                "processing": "Подождите...",
+                "search": "Поиск:",
+                "lengthMenu": "Показать _MENU_ записей",
+                "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
+                "infoEmpty": "Записи с 0 до 0 из 0 записей",
+                "infoFiltered": "(отфильтровано из _MAX_ записей)",
+                "infoPostFix": "",
+                "loadingRecords": "Загрузка записей...",
+                "zeroRecords": "Записи отсутствуют.",
+                "emptyTable": "В таблице отсутствуют данные",
+                "paginate": {
+                    "first": "Первая",
+                    "previous": "Предыдущая",
+                    "next": "Следующая",
+                    "last": "Последняя"
+                },
+                "aria": {
+                    "sortAscending": ": активировать для сортировки столбца по возрастанию",
+                    "sortDescending": ": активировать для сортировки столбца по убыванию"
+                }
+            }
+        });
+    });
+</script>
+
