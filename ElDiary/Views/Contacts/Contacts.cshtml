@@ -8,37 +8,51 @@
 <html>
 <head>
     <title>@ViewBag.Title ElDIary</title>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
 </head>
 <body>
-    <div style="margin-top:20px">
-        <table id="contacts" class="display">
-            <thead>
-                <tr>                   
-                    <th>Имя</th>
-                    <th>Телефон</th>
-                    <th>Электропочта</th>
-                    <th class="hidden">Id</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Contacts)
-            {
-                    <tr>
-                        <td>@Html.DisplayFor(x => item.Name)</td>
-                        <td>@Html.DisplayFor(x => item.Phone)</td>
-                        <td>@Html.DisplayFor(x => item.Email)</td>
-                        <td>
-                            <input type="button" class="btn btn-default" value="Удалить контакт" />
-                            <div class="hidden">
-                                @Html.DisplayFor(x => item.Id)
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+<div style="margin-top:20px">
+    <table id="contacts" class="display">
+        <thead>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th>Организация</th>
+            <th>Должность</th>
+            <th>Телефон</th>
+            <th>Email</th>
+            <th>Skype</th>
+            <th>Другое</th>
+            <th class="hidden">Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Contacts)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.SecondName)</td>
+                <td>@Html.DisplayFor(x => item.FirstName)</td>
+                <td>@Html.DisplayFor(x => item.ThirdName)</td>
+                <td>@Html.DisplayFor(x => item.BirthDate)</td>
+                <td>@Html.DisplayFor(x => item.Company)</td>
+                <td>@Html.DisplayFor(x => item.Position)</td>
+                <td>@Html.DisplayFor(x => item.Phone)</td>
+                <td>@Html.DisplayFor(x => item.Email)</td>
+                <td>@Html.DisplayFor(x => item.Skype)</td>
+                <td>@Html.DisplayFor(x => item.Other)</td>
+                <td>
+                    <input type="button" class="btn btn-default" value="Удалить контакт"/>
+                    <div class="hidden">
+                        @Html.DisplayFor(x => item.Id)
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
 
@@ -91,4 +105,3 @@
         });
     });
 </script>
-

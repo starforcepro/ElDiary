@@ -7,17 +7,17 @@ namespace ElDiary.Controllers
 {
     public class ContactsController : Controller
     {
-        private readonly IContactService contactService;
+        private readonly IContactsService contactsService;
 
-        public ContactsController(IContactService contactService)
+        public ContactsController(IContactsService contactsService)
         {
-            this.contactService = contactService;
+            this.contactsService = contactsService;
         }
 
         [HttpGet]
         public ViewResult Contacts()
         {
-            var contacts = contactService.Select();
+            var contacts = contactsService.GetAll();
 
             return View("Contacts", new ContactsViewModel {Contacts = contacts});
         }
@@ -31,17 +31,17 @@ namespace ElDiary.Controllers
         [HttpPost]
         public ActionResult AddContact(AddContactViewModel addContactViewModel)
         {
-            contactService.Create(addContactViewModel);
+            contactsService.Create(addContactViewModel);
 
-            var contacts = contactService.Select();
-            return View("Contacts", new ContactsViewModel { Contacts = contacts });
+            var contacts = contactsService.GetAll();
+            return View("Contacts", new ContactsViewModel {Contacts = contacts});
         }
 
 
         [HttpPost]
         public void RecieveData(object guidOfContact)
         {
-            contactService.Delete(Guid.Parse(guidOfContact.ToString()));
+            contactsService.Delete(Guid.Parse(guidOfContact.ToString()));
         }
     }
 }

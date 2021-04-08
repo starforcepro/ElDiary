@@ -7,19 +7,19 @@ namespace ElDiary.Handlers
 {
     public class ContactHandler : IContactHandler
     {
-        public Contact[] Select(Guid id)
+        public ContactDto[] Select(Guid id)
         {
             return FakeContactsRepository.Contacts.Where(x => x.Id == id).ToArray();
         }
 
-        public Contact[] Select()
+        public ContactDto[] SelectAll()
         {
             return FakeContactsRepository.Contacts.ToArray();
         }
 
-        public void Create(Contact contact)
+        public void Create(ContactDto contactDto)
         {
-            FakeContactsRepository.Create(contact);
+            FakeContactsRepository.Create(contactDto);
         }
 
         public void Delete(Guid guidOfContact)

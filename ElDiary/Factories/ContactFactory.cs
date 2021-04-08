@@ -6,14 +6,14 @@ namespace ElDiary.Factories
 {
     public class ContactFactory : IContactFactory
     {
-        public Contact Create(AddContactViewModel addContactViewModel)
+        public ContactDto Create(AddContactViewModel addContactViewModel)
         {
-            return new Contact
+            return new ContactDto
             {
                 Id = Guid.NewGuid(),
                 Phone = addContactViewModel.Phone,
                 Email = addContactViewModel.Email,
-                Name = addContactViewModel.Name
+                FirstName = addContactViewModel.Name
             };
         }
     }

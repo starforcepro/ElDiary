@@ -28,7 +28,7 @@ namespace ElDiary.Infrastructure
             kernel.Bind<INoteHandler>().To<NoteHandler>();
             kernel.Bind<INoteModelFactory>().To<NoteModelFactory>();
             kernel.Bind<IContactModelFactory>().To<ContactModelFactory>();
-            kernel.Bind<IContactService>().To<ContactService>();
+            kernel.Bind<IContactsService>().To<ContactsService>();
             kernel.Bind<INoteFactory>().To<NoteFactory>();
             kernel.Bind<IContactFactory>().To<ContactFactory>();
         }

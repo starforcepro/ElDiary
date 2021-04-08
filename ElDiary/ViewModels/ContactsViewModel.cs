@@ -5,6 +5,6 @@ namespace ElDiary.Models
 {
     public class ContactsViewModel
     {
-        public IEnumerable<Contact> Contacts;
+        public IEnumerable<ContactModel> Contacts;
     }
 }

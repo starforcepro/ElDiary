@@ -2,7 +2,7 @@
 
 namespace ElDiary.Entities
 {
-    public class ContactModel
+    public class ContactDto
     {
         public Guid Id { get; set; }
         public string SecondName { get; set; }

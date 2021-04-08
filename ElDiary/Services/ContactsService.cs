@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ElDiary.Entities;
 using ElDiary.Factories;
 using ElDiary.Handlers;
@@ -6,20 +7,25 @@ using ElDiary.Models;
 
 namespace ElDiary.Services
 {
-    public class ContactService : IContactService
+    public class ContactsService : IContactsService
     {
         private readonly IContactHandler contactHandler;
+        private readonly IContactModelFactory contactModelFactory;
         private readonly IContactFactory contactFactory;
 
-        public ContactService(IContactHandler contactHandler, IContactFactory contactFactory)
+        public ContactsService(IContactHandler contactHandler, IContactModelFactory contactFactory, IContactFactory contactFactory1)
         {
             this.contactHandler = contactHandler;
-            this.contactFactory = contactFactory;
+            this.contactModelFactory = contactFactory;
+            this.contactFactory = contactFactory1;
         }
 
-        public Contact[] Select()
+        public ContactModel[] GetAll()
         {
-            return contactHandler.Select();
+            var contacts = contactHandler.SelectAll();
+            var contactModels = contacts.Select(x => contactModelFactory.Create(x)).ToArray();
+
+            return contactModels;
         }
 
         public void Create(AddContactViewModel addContactViewModel)

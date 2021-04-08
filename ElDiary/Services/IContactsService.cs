@@ -4,9 +4,9 @@ using ElDiary.Models;
 
 namespace ElDiary.Services
 {
-    public interface IContactService
+    public interface IContactsService
     {
-        Contact[] Select();
+        ContactModel[] GetAll();
         void Create(AddContactViewModel addContactViewModel);
         void Delete(Guid guidOfContact);
     }

@@ -4,6 +4,6 @@ namespace ElDiary.Factories
 {
     public interface IContactModelFactory
     {
-        ContactModel Create(Contact contact);
+        ContactModel Create(ContactDto contactDto);
     }
 }

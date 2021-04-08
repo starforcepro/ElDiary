@@ -5,9 +5,9 @@ namespace ElDiary.Handlers
 {
     public interface IContactHandler
     {
-        Contact[] Select(Guid id);
-        Contact[] Select();
-        void Create(Contact contact);
+        ContactDto[] Select(Guid id);
+        ContactDto[] SelectAll();
+        void Create(ContactDto contactDto);
         void Delete(Guid guidOfContact);
     }
 }

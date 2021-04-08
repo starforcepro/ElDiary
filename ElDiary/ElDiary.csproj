@@ -171,7 +171,7 @@
     <Compile Include="Builders\NoteModelBuilder.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
-    <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\ContactDto.cs" />
     <Compile Include="Entities\ContactModel.cs" />
     <Compile Include="Entities\Note.cs" />
     <Compile Include="Entities\NoteModel.cs" />
@@ -191,16 +191,16 @@
     <Compile Include="Handlers\INoteHandler.cs" />
     <Compile Include="Handlers\NoteHandler.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\AddContactViewModel.cs" />
-    <Compile Include="Models\AddNoteViewModel.cs" />
-    <Compile Include="Models\ContactsViewModel.cs" />
-    <Compile Include="Models\NotesViewModel.cs" />
+    <Compile Include="ViewModels\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\AddNoteViewModel.cs" />
+    <Compile Include="ViewModels\ContactsViewModel.cs" />
+    <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FakeContactsRepository.cs" />
     <Compile Include="Repositories\FakeNotesRepository.cs" />
-    <Compile Include="Services\ContactService.cs" />
+    <Compile Include="Services\ContactsService.cs" />
     <Compile Include="Services\NotesService.cs" />
-    <Compile Include="Services\IContactService.cs" />
+    <Compile Include="Services\IContactsService.cs" />
     <Compile Include="Services\INotesService.cs" />
   </ItemGroup>
   <ItemGroup>
