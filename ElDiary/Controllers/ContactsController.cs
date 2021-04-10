@@ -40,9 +40,15 @@ namespace ElDiary.Controllers
 
 
         [HttpPost]
-        public void ReceiveData(object guidOfContact)
+        public void DeleteContact(object contactId)
         {
-            contactsService.Delete(Guid.Parse(guidOfContact.ToString()));
+            contactsService.Delete(Guid.Parse(contactId.ToString()));
+        }
+
+        [HttpPost]
+        public void EditContact(object editedContactsJson)
+        {
+            contactsService.Edit(editedContactsJson);
         }
     }
 }

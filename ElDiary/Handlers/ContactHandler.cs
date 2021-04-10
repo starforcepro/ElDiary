@@ -26,5 +26,11 @@ namespace ElDiary.Handlers
         {
             FakeContactsRepository.Delete(guidOfContact);
         }
+
+        public void Update(ContactDto contactDto)
+        {
+            FakeContactsRepository.Delete(contactDto.Id);
+            FakeContactsRepository.Create(contactDto);
+        }
     }
 }

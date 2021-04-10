@@ -22,7 +22,6 @@ namespace ElDiary.Repositories
                 Other = "other",
                 Id = Guid.Parse("cd3df559-c345-4b43-9e8b-22fd1a6d3d37")
             },
-
             new ContactDto
             {
                 FirstName = "Serega",
@@ -37,7 +36,6 @@ namespace ElDiary.Repositories
                 Other = "other",
                 Id = Guid.Parse("3fd315eb-79fe-4a53-93c2-8f8a8c9979da")
             },
-
             new ContactDto
             {
                 FirstName = "Vovan",
@@ -51,6 +49,20 @@ namespace ElDiary.Repositories
                 Skype = "gg4",
                 Other = "other",
                 Id = Guid.Parse("61bf9c72-b4d8-41e6-a60b-33b21119eb7e")
+            },
+            new ContactDto
+            {
+                FirstName = "Goshan",
+                SecondName = "Gotov",
+                ThirdName = "Kibavi4",
+                BirthDate = "1996",
+                Company = "CompanyName",
+                Position = "17",
+                Phone = "89829567228",
+                Email = "goshan@17.com",
+                Skype = "gg5",
+                Other = "other",
+                Id = Guid.Parse("fb6df883-9e4c-4627-a25a-856e1f7910cf")
             }
         };
 

@@ -31,6 +31,7 @@ namespace ElDiary.Infrastructure
             kernel.Bind<IContactsService>().To<ContactsService>();
             kernel.Bind<INoteFactory>().To<NoteFactory>();
             kernel.Bind<IContactFactory>().To<ContactFactory>();
+            kernel.Bind<IContactDtoFactory>().To<ContactDtoFactory>();
         }
 
         public object GetService(Type serviceType)

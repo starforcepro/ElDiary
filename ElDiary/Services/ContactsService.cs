@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ElDiary.Entities;
 using ElDiary.Factories;
 using ElDiary.Handlers;
 using ElDiary.ViewModels;
+using Newtonsoft.Json;
 
 namespace ElDiary.Services
 {
@@ -12,15 +14,18 @@ namespace ElDiary.Services
         private readonly IContactHandler contactHandler;
         private readonly IContactModelFactory contactModelFactory;
         private readonly IContactFactory contactFactory;
+        private readonly IContactDtoFactory contactDtoFactory;
 
         public ContactsService(
             IContactHandler contactHandler,
             IContactModelFactory contactFactory,
-            IContactFactory contactModelFactory)
+            IContactFactory contactModelFactory,
+            IContactDtoFactory contactDtoFactory)
         {
             this.contactHandler = contactHandler;
             this.contactModelFactory = contactFactory;
             this.contactFactory = contactModelFactory;
+            this.contactDtoFactory = contactDtoFactory;
         }
 
         public ContactModel[] GetAll()
@@ -38,9 +43,15 @@ namespace ElDiary.Services
             contactHandler.Create(contact);
         }
 
-        public void Delete(Guid guidOfContact)
+        public void Delete(Guid contactId)
         {
-            contactHandler.Delete(guidOfContact);
+            contactHandler.Delete(contactId);
+        }
+
+        public void Edit(object editedContactsJson)
+        {
+            var editedContacts = JsonConvert.DeserializeObject<List<ContactModel>>(editedContactsJson.ToString());
+            editedContacts.ForEach(x => contactHandler.Update(contactDtoFactory.Create(x)));
         }
     }
 }

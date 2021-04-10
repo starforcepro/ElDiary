@@ -11,5 +11,6 @@
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Skype { get; set; }
-        public string Other { get; set; }    }
+        public string Other { get; set; }
+    }
 }

@@ -9,5 +9,6 @@ namespace ElDiary.Handlers
         ContactDto[] SelectAll();
         void Create(ContactDto contactDto);
         void Delete(Guid guidOfContact);
+        void Update(ContactDto contactDto);
     }
 }

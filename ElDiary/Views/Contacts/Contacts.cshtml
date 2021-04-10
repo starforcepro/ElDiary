@@ -32,19 +32,19 @@
         @foreach (var item in Model.Contacts)
         {
             <tr>
-                <td>@Html.DisplayFor(x => item.SecondName)</td>
-                <td>@Html.DisplayFor(x => item.FirstName)</td>
-                <td>@Html.DisplayFor(x => item.ThirdName)</td>
-                <td>@Html.DisplayFor(x => item.BirthDate)</td>
-                <td>@Html.DisplayFor(x => item.Company)</td>
-                <td>@Html.DisplayFor(x => item.Position)</td>
-                <td>@Html.DisplayFor(x => item.Phone)</td>
-                <td>@Html.DisplayFor(x => item.Email)</td>
-                <td>@Html.DisplayFor(x => item.Skype)</td>
-                <td>@Html.DisplayFor(x => item.Other)</td>
-                <td>
-                    <input type="button" class="btn btn-default" value="Удалить контакт"/>
-                    <div class="hidden">
+                <td id="secondName" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.SecondName)</td>
+                <td id="firstName" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.FirstName)</td>
+                <td id="thirdName" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.ThirdName)</td>
+                <td id="birthDate" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.BirthDate)</td>
+                <td id="company" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Company)</td>
+                <td id="position" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Position)</td>
+                <td id="phone" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Phone)</td>
+                <td id="email" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Email)</td>
+                <td id="skype" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Skype)</td>
+                <td id="other" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Other)</td>
+                <td bgcolor="white">
+                    <input type="button" class=" delete btn btn-default" onclick="deleteContact(this)" value="Удалить контакт"/>
+                    <div id="contactId" class="hidden">
                         @Html.DisplayFor(x => item.Id)
                     </div>
                 </td>
@@ -52,32 +52,63 @@
         }
         </tbody>
     </table>
+    <div>
+        <input type="button" class="edit btn btn-default" onclick="saveChanges()" value="Сохранить изменения"/>
+    </div>
 </div>
 </body>
 </html>
 
 <script type="text/javascript">
-
-    $(function () {
-        $("table").on("click",
-            ".btn",
-            function () {
-                var currentContact = $(this).parent().parent();
-                var guidOfContact = $(this).parent().find(".hidden").text().trim();
-                console.log(guidOfContact);
-                console.log(currentContact);
-
-                $.ajax({
-                    type: "POST",
-                    url: "../contacts/recievedata",
-                    contentType: 'application/json',
-                    data: JSON.stringify({ guidOfContact: guidOfContact })
-                });
-
-                $(currentContact).remove();
-            });
-    });
-
+    let contactsMap = new Map();
+    
+    function editContact(textBox){
+        let currentContact = $(textBox).parent();
+        let contactId = getFieldTextByElementId(currentContact, "contactId");
+        let secondName = getFieldTextByElementId(currentContact, "secondName");
+        let firstName = getFieldTextByElementId(currentContact, "firstName");
+        let thirdName = getFieldTextByElementId(currentContact, "thirdName");
+        let birthDate = getFieldTextByElementId(currentContact, "birthDate");
+        let company = getFieldTextByElementId(currentContact, "company");
+        let position = getFieldTextByElementId(currentContact, "position");
+        let phone = getFieldTextByElementId(currentContact, "phone");
+        let email = getFieldTextByElementId(currentContact, "email");
+        let skype = getFieldTextByElementId(currentContact, "skype");
+        let other = getFieldTextByElementId(currentContact, "other");
+        
+        contactsMap.set(contactId, {id:contactId, secondName, firstName, thirdName, birthDate, company, position, phone, email, skype, other});
+    }
+    
+    function saveChanges() {
+      let editedContactsJson = JSON.stringify(Array.from(contactsMap.values()));
+              
+      $.ajax({
+          type: "POST",
+          url: "../contacts/editcontact",
+          contentType: 'application/json',
+          data: JSON.stringify({ editedContactsJson: editedContactsJson })
+      });
+    }
+    
+    function deleteContact(inputTypeButton){
+        let currentContact = $(inputTypeButton).parent().parent();
+        let contactId = getFieldTextByElementId(currentContact, "contactId");
+        
+        contactsMap.delete(contactId);
+        $.ajax({
+            type: "POST",
+            url: "../contacts/deletecontact",
+            contentType: 'application/json',
+            data: JSON.stringify({ contactId: contactId })
+        });
+        
+        $(currentContact).remove();
+    }
+    
+    function getFieldTextByElementId(currentContact, id) {
+      return currentContact.find(`#${id}`).text().trim();
+    }
+    
     $(function() {
         $("#contacts").dataTable({
             language: {
