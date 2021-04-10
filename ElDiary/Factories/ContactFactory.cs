@@ -1,6 +1,6 @@
 ﻿using System;
 using ElDiary.Entities;
-using ElDiary.Models;
+using ElDiary.ViewModels;
 
 namespace ElDiary.Factories
 {
@@ -11,9 +11,16 @@ namespace ElDiary.Factories
             return new ContactDto
             {
                 Id = Guid.NewGuid(),
+                SecondName = addContactViewModel.SecondName,
+                FirstName = addContactViewModel.FirstName,
+                ThirdName = addContactViewModel.ThirdName,
+                BirthDate = addContactViewModel.BirthDate,
+                Company = addContactViewModel.Company,
+                Position = addContactViewModel.Position,
                 Phone = addContactViewModel.Phone,
                 Email = addContactViewModel.Email,
-                FirstName = addContactViewModel.Name
+                Skype = addContactViewModel.Skype,
+                Other = addContactViewModel.Other
             };
         }
     }

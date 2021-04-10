@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using ElDiary.Models;
 using ElDiary.Services;
+using ElDiary.ViewModels;
 
 namespace ElDiary.Controllers
 {
@@ -39,7 +40,7 @@ namespace ElDiary.Controllers
 
 
         [HttpPost]
-        public void RecieveData(object guidOfContact)
+        public void ReceiveData(object guidOfContact)
         {
             contactsService.Delete(Guid.Parse(guidOfContact.ToString()));
         }

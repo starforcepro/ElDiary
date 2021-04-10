@@ -8,6 +8,7 @@ namespace ElDiary.Factories
         {
             return new ContactModel
             {
+                Id = contactDto.Id,
                 SecondName = contactDto.SecondName,
                 FirstName = contactDto.FirstName,
                 ThirdName = contactDto.ThirdName,

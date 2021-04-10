@@ -1,5 +1,5 @@
 ﻿using ElDiary.Entities;
-using ElDiary.Models;
+using ElDiary.ViewModels;
 
 namespace ElDiary.Factories
 {

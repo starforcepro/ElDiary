@@ -3,7 +3,7 @@ using System.Linq;
 using ElDiary.Entities;
 using ElDiary.Factories;
 using ElDiary.Handlers;
-using ElDiary.Models;
+using ElDiary.ViewModels;
 
 namespace ElDiary.Services
 {
@@ -13,11 +13,14 @@ namespace ElDiary.Services
         private readonly IContactModelFactory contactModelFactory;
         private readonly IContactFactory contactFactory;
 
-        public ContactsService(IContactHandler contactHandler, IContactModelFactory contactFactory, IContactFactory contactFactory1)
+        public ContactsService(
+            IContactHandler contactHandler,
+            IContactModelFactory contactFactory,
+            IContactFactory contactModelFactory)
         {
             this.contactHandler = contactHandler;
             this.contactModelFactory = contactFactory;
-            this.contactFactory = contactFactory1;
+            this.contactFactory = contactModelFactory;
         }
 
         public ContactModel[] GetAll()

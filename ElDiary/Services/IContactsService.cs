@@ -1,6 +1,7 @@
 ﻿using System;
 using ElDiary.Entities;
 using ElDiary.Models;
+using ElDiary.ViewModels;
 
 namespace ElDiary.Services
 {
