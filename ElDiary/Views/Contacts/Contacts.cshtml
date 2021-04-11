@@ -42,7 +42,7 @@
                 <td id="email" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Email)</td>
                 <td id="skype" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Skype)</td>
                 <td id="other" contenteditable="true" onblur="editContact(this)">@Html.DisplayFor(x => item.Other)</td>
-                <td bgcolor="white">
+                <td >
                     <input type="button" class=" delete btn btn-default" onclick="deleteContact(this)" value="Удалить контакт"/>
                     <div id="contactId" class="hidden">
                         @Html.DisplayFor(x => item.Id)

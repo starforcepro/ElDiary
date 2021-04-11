@@ -6,13 +6,11 @@ namespace ElDiary
     {
         public static void Register(BundleCollection bundles)
         {
-            bundles.Add(
-                new ScriptBundle("~/Bundle/Scripts/Layout")
-                    .Include(       
-                        "~/scripts/jquery-3.1.1.min.js",
+            bundles
+                .Add(new ScriptBundle("~/Bundle/Scripts/Layout")
+                    .Include("~/scripts/jquery-3.1.1.min.js",
                         "~/scripts/bootstrap.min.js",
-                        "~/scripts/modernizr-2.6.2.js"
-                    ));
+                        "~/scripts/datatables/jquery.datatables.js"));
         }
     }
 }

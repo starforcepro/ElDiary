@@ -33,9 +33,8 @@ namespace ElDiary.Controllers
         public ActionResult AddContact(AddContactViewModel addContactViewModel)
         {
             contactsService.Create(addContactViewModel);
-
-            var contacts = contactsService.GetAll();
-            return View("Contacts", new ContactsViewModel {Contacts = contacts});
+            
+            return RedirectToAction("Contacts");
         }
 
 

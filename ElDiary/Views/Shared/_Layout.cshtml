@@ -1,5 +1,4 @@
-﻿@using ElDiary.Models
-@using ElDiary.ViewModels
+﻿@using ElDiary.ViewModels
 
 <!DOCTYPE html>
 <html>
@@ -8,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title ElDIary</title>
     @Scripts.Render("~/Bundle/Scripts/Layout")
-    @Styles.Render("~/Content/css")   
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">    
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <div Id="HeaderId">
@@ -18,7 +15,6 @@
     </div>
     <div class="container body-content" id="MainWrapper">
         <div id="ContentWrapper">
-            @Html.Partial("~/Views/Notes/AddNote.cshtml", new AddNoteViewModel())
             @Html.Partial("~/Views/Contacts/AddContact.cshtml", new AddContactViewModel())
             @RenderBody()
         </div>

@@ -166,43 +166,27 @@
     <Compile Include="App_Start\JsBundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Builders\INoteModelBuilder.cs" />
-    <Compile Include="Builders\NoteModelBuilder.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
-    <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Entities\ContactDto.cs" />
     <Compile Include="Entities\ContactModel.cs" />
-    <Compile Include="Entities\Note.cs" />
-    <Compile Include="Entities\NoteModel.cs" />
     <Compile Include="Factories\ContactDtoFactory.cs" />
     <Compile Include="Factories\ContactFactory.cs" />
     <Compile Include="Factories\ContactModelFactory.cs" />
     <Compile Include="Factories\IContactDtoFactory.cs" />
     <Compile Include="Factories\IContactFactory.cs" />
     <Compile Include="Factories\IContactModelFactory.cs" />
-    <Compile Include="Factories\INoteFactory.cs" />
-    <Compile Include="Factories\INoteModelFactory.cs" />
-    <Compile Include="Factories\NoteFactory.cs" />
-    <Compile Include="Factories\NoteModelFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\ContactHandler.cs" />
     <Compile Include="Handlers\IContactHandler.cs" />
-    <Compile Include="Handlers\INoteHandler.cs" />
-    <Compile Include="Handlers\NoteHandler.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="ViewModels\AddContactViewModel.cs" />
-    <Compile Include="ViewModels\AddNoteViewModel.cs" />
     <Compile Include="ViewModels\ContactsViewModel.cs" />
-    <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FakeContactsRepository.cs" />
-    <Compile Include="Repositories\FakeNotesRepository.cs" />
     <Compile Include="Services\ContactsService.cs" />
-    <Compile Include="Services\NotesService.cs" />
     <Compile Include="Services\IContactsService.cs" />
-    <Compile Include="Services\INotesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -243,6 +227,7 @@
     <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
     <Content Include="Content\DataTables\css\colReorder.semanticui.css" />
     <Content Include="Content\DataTables\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
@@ -296,6 +281,7 @@
     <Content Include="Content\DataTables\css\keyTable.jqueryui.min.css" />
     <Content Include="Content\DataTables\css\keyTable.semanticui.css" />
     <Content Include="Content\DataTables\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\responsive.bootstrap.css" />
     <Content Include="Content\DataTables\css\responsive.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\responsive.bootstrap4.css" />
@@ -308,6 +294,18 @@
     <Content Include="Content\DataTables\css\responsive.jqueryui.min.css" />
     <Content Include="Content\DataTables\css\responsive.semanticui.css" />
     <Content Include="Content\DataTables\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowGroup.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.css" />
+    <Content Include="Content\DataTables\css\rowGroup.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.css" />
+    <Content Include="Content\DataTables\css\rowGroup.semanticui.min.css" />
     <Content Include="Content\DataTables\css\rowReorder.bootstrap.css" />
     <Content Include="Content\DataTables\css\rowReorder.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\rowReorder.bootstrap4.css" />
@@ -344,6 +342,7 @@
     <Content Include="Content\DataTables\css\select.jqueryui.min.css" />
     <Content Include="Content\DataTables\css\select.semanticui.css" />
     <Content Include="Content\DataTables\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\images\details_close.png" />
     <Content Include="Content\DataTables\images\details_open.png" />
     <Content Include="Content\DataTables\images\sort_asc.png" />
@@ -361,9 +360,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\DataTables\css\semanticui.scss" />
-    <Content Include="Content\DataTables\css\mixins.scss" />
-    <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -416,6 +413,8 @@
     <Content Include="Scripts\DataTables\dataTables.material.min.js" />
     <Content Include="Scripts\DataTables\dataTables.responsive.js" />
     <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowGroup.min.js" />
     <Content Include="Scripts\DataTables\dataTables.rowReorder.js" />
     <Content Include="Scripts\DataTables\dataTables.rowReorder.min.js" />
     <Content Include="Scripts\DataTables\dataTables.scroller.js" />
@@ -438,7 +437,6 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -464,10 +462,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Notes\Notes.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Contacts\Contacts.cshtml" />
-    <Content Include="Views\Notes\AddNote.cshtml" />
     <Content Include="Views\Contacts\AddContact.cshtml" />
   </ItemGroup>
   <ItemGroup>

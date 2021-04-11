@@ -12,7 +12,7 @@ namespace ElDiary
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Notes", action = "Notes"}
+                defaults: new { controller = "Contacts", action = "Contacts"}
             );
         }
     }
