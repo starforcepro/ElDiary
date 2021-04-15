@@ -1,14 +1,13 @@
-﻿using System;
-using ElDiary.Entities;
+﻿using System.Collections.Generic;
+using ElDiary.DAL.Entities;
 
 namespace ElDiary.Handlers
 {
     public interface IContactHandler
     {
-        ContactDto[] Select(Guid id);
-        ContactDto[] SelectAll();
-        void Create(ContactDto contactDto);
-        void Delete(Guid guidOfContact);
-        void Update(ContactDto contactDto);
+        IEnumerable<Contact> GetAll();
+        void Create(Contact contact);
+        void Delete(int id);
+        void Update(Contact contact);
     }
 }

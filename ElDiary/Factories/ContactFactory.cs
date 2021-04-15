@@ -1,16 +1,15 @@
-﻿using System;
-using ElDiary.Entities;
+﻿using ElDiary.DAL.Entities;
+using ElDiary.Models;
 using ElDiary.ViewModels;
 
 namespace ElDiary.Factories
 {
     public class ContactFactory : IContactFactory
     {
-        public ContactDto Create(AddContactViewModel addContactViewModel)
+        public Contact Create(AddContactViewModel addContactViewModel)
         {
-            return new ContactDto
+            return new Contact
             {
-                Id = Guid.NewGuid(),
                 SecondName = addContactViewModel.SecondName,
                 FirstName = addContactViewModel.FirstName,
                 ThirdName = addContactViewModel.ThirdName,
@@ -21,6 +20,24 @@ namespace ElDiary.Factories
                 Email = addContactViewModel.Email,
                 Skype = addContactViewModel.Skype,
                 Other = addContactViewModel.Other
+            };
+        }
+
+        public Contact Create(ContactModel contactModel)
+        {
+            return new Contact
+            {
+                Id = contactModel.Id,
+                SecondName = contactModel.SecondName,
+                FirstName = contactModel.FirstName,
+                ThirdName = contactModel.ThirdName,
+                BirthDate = contactModel.BirthDate,
+                Company = contactModel.Company,
+                Position = contactModel.Position,
+                Phone = contactModel.Phone,
+                Email = contactModel.Email,
+                Skype = contactModel.Skype,
+                Other = contactModel.Other
             };
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using ElDiary.DAL.Entities;
+using ElDiary.DAL.Repositories;
 using ElDiary.Factories;
 using ElDiary.Handlers;
 using ElDiary.Services;
@@ -25,7 +27,7 @@ namespace ElDiary.Infrastructure
             kernel.Bind<IContactModelFactory>().To<ContactModelFactory>();
             kernel.Bind<IContactsService>().To<ContactsService>();
             kernel.Bind<IContactFactory>().To<ContactFactory>();
-            kernel.Bind<IContactDtoFactory>().To<ContactDtoFactory>();
+            kernel.Bind<IRepository<Contact>>().To<ContactsRepository>();
         }
 
         public object GetService(Type serviceType)

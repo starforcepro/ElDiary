@@ -1,24 +1,25 @@
-﻿using ElDiary.Entities;
+﻿using ElDiary.DAL.Entities;
+using ElDiary.Models;
 
 namespace ElDiary.Factories
 {
     public class ContactModelFactory : IContactModelFactory
     {
-        public ContactModel Create(ContactDto contactDto)
+        public ContactModel Create(Contact contact)
         {
             return new ContactModel
             {
-                Id = contactDto.Id,
-                SecondName = contactDto.SecondName,
-                FirstName = contactDto.FirstName,
-                ThirdName = contactDto.ThirdName,
-                BirthDate = contactDto.BirthDate,
-                Company = contactDto.Company,
-                Position = contactDto.Position,
-                Phone = contactDto.Phone,
-                Email = contactDto.Email,
-                Skype = contactDto.Skype,
-                Other = contactDto.Other
+                Id = contact.Id,
+                SecondName = contact.SecondName,
+                FirstName = contact.FirstName,
+                ThirdName = contact.ThirdName,
+                BirthDate = contact.BirthDate,
+                Company = contact.Company,
+                Position = contact.Position,
+                Phone = contact.Phone,
+                Email = contact.Email,
+                Skype = contact.Skype,
+                Other = contact.Other
             };
         }
     }

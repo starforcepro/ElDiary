@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ElDiary.Entities;
+using ElDiary.Models;
 
-namespace ElDiary.Models
+namespace ElDiary.ViewModels
 {
     public class ContactsViewModel
     {

@@ -1,9 +1,10 @@
-﻿using ElDiary.Entities;
+﻿using ElDiary.DAL.Entities;
+using ElDiary.Models;
 
 namespace ElDiary.Factories
 {
     public interface IContactModelFactory
     {
-        ContactModel Create(ContactDto contactDto);
+        ContactModel Create(Contact contact);
     }
 }

@@ -1,36 +1,36 @@
-﻿using System;
-using System.Linq;
-using ElDiary.Entities;
-using ElDiary.Repositories;
+﻿using System.Collections.Generic;
+using ElDiary.DAL.Entities;
+using ElDiary.DAL.Repositories;
 
 namespace ElDiary.Handlers
 {
     public class ContactHandler : IContactHandler
     {
-        public ContactDto[] Select(Guid id)
+        private readonly ContactsRepository contactsRepository;
+
+        public ContactHandler(ContactsRepository contactsRepository)
         {
-            return FakeContactsRepository.Contacts.Where(x => x.Id == id).ToArray();
+            this.contactsRepository = contactsRepository;
         }
 
-        public ContactDto[] SelectAll()
+        public IEnumerable<Contact> GetAll()
         {
-            return FakeContactsRepository.Contacts.ToArray();
+            return contactsRepository.GetAll();
         }
 
-        public void Create(ContactDto contactDto)
+        public void Create(Contact contact)
         {
-            FakeContactsRepository.Create(contactDto);
+            contactsRepository.Create(contact);
         }
 
-        public void Delete(Guid guidOfContact)
+        public void Delete(int id)
         {
-            FakeContactsRepository.Delete(guidOfContact);
+            contactsRepository.Delete(id);
         }
 
-        public void Update(ContactDto contactDto)
+        public void Update(Contact contact)
         {
-            FakeContactsRepository.Delete(contactDto.Id);
-            FakeContactsRepository.Create(contactDto);
+            contactsRepository.Update(contact);
         }
     }
 }

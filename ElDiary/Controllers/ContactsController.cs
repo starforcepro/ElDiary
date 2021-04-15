@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ElDiary.Models;
 using ElDiary.Services;
 using ElDiary.ViewModels;
@@ -33,7 +32,7 @@ namespace ElDiary.Controllers
         public ActionResult AddContact(AddContactViewModel addContactViewModel)
         {
             contactsService.Create(addContactViewModel);
-            
+
             return RedirectToAction("Contacts");
         }
 
@@ -41,7 +40,7 @@ namespace ElDiary.Controllers
         [HttpPost]
         public void DeleteContact(object contactId)
         {
-            contactsService.Delete(Guid.Parse(contactId.ToString()));
+            contactsService.Delete(int.Parse(contactId.ToString()));
         }
 
         [HttpPost]
