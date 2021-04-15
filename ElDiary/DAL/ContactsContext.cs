@@ -1,3 +1,4 @@
+using System.CodeDom;
 using System.Data.Entity;
 using ElDiary.DAL.Entities;
 
@@ -11,6 +12,10 @@ namespace ElDiary.DAL
         static ContactsContext()
         {
             Database.SetInitializer(new StoreDbInitializer());
+        }
+
+        public ContactsContext() : base("DBConnection")
+        {
         }
     }
 
