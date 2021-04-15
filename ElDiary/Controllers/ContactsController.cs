@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using ElDiary.Models;
 using ElDiary.Services;
 using ElDiary.ViewModels;
 

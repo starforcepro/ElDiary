@@ -1,29 +1,29 @@
 ﻿@using ElDiary.ViewModels
 
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title ElDIary</title>
     @Scripts.Render("~/Bundle/Scripts/Layout")
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div Id="HeaderId">
-        @Html.Partial("Header")
+<div Id="HeaderId">
+    @Html.Partial("Header")
+</div>
+<div class="container body-content" id="MainWrapper">
+    <div id="ContentWrapper">
+        @Html.Partial("~/Views/Contacts/AddContact.cshtml", new AddContactViewModel())
+        @RenderBody()
     </div>
-    <div class="container body-content" id="MainWrapper">
-        <div id="ContentWrapper">
-            @Html.Partial("~/Views/Contacts/AddContact.cshtml", new AddContactViewModel())
-            @RenderBody()
-        </div>
 
-        <hr />
-        <footer>
-            <p>&copy; ElDiary @DateTime.Now.Year</p>
-        </footer>
-    </div>
-    @RenderSection("FooterScripts", false)
+    <hr/>
+    <footer>
+        <p>&copy; ElDiary @DateTime.Now.Year</p>
+    </footer>
+</div>
+@RenderSection("FooterScripts", false)
 </body>
 </html>

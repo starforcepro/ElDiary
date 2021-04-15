@@ -17,84 +17,44 @@
                     }))
                     {
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.SecondName, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Фамилия"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.SecondName)<br />
+                            @Html.TextBoxFor(x => x.SecondName, new Dictionary<string, object> {{"placeholder", "Фамилия"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.SecondName)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.FirstName, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Имя"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.FirstName)<br />
+                            @Html.TextBoxFor(x => x.FirstName, new Dictionary<string, object> {{"placeholder", "Имя"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.FirstName)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.ThirdName, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Отчество"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.ThirdName)<br />
+                            @Html.TextBoxFor(x => x.ThirdName, new Dictionary<string, object> {{"placeholder", "Отчество"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.ThirdName)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.BirthDate, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Дата рождения"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.BirthDate)<br />
+                            @Html.TextBoxFor(x => x.BirthDate, new Dictionary<string, object> {{"placeholder", "Дата рождения"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.BirthDate)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Company, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Организация"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Company)<br />
+                            @Html.TextBoxFor(x => x.Company, new Dictionary<string, object> {{"placeholder", "Организация"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Company)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Position, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Должность"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Position)<br />
+                            @Html.TextBoxFor(x => x.Position, new Dictionary<string, object> {{"placeholder", "Должность"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Position)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Phone, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Телефон"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Phone)<br />
+                            @Html.TextBoxFor(x => x.Phone, new Dictionary<string, object> {{"placeholder", "Телефон"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Phone)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Email, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Электропочта"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Email)<br />
+                            @Html.TextBoxFor(x => x.Email, new Dictionary<string, object> {{"placeholder", "Электропочта"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Email)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Skype, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Skype"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Skype)<br />
+                            @Html.TextBoxFor(x => x.Skype, new Dictionary<string, object> {{"placeholder", "Skype"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Skype)<br/>
                         </div>
                         <div style="padding-bottom: 5px;">
-                            @Html.TextBoxFor(x => x.Other, new Dictionary<string, object>
-                            {
-                                {"placeholder", "Другое"},
-                                {"style", "min-width: 100%;"},
-                            })
-                            @Html.ValidationMessageFor(x => x.Other)<br />
+                            @Html.TextBoxFor(x => x.Other, new Dictionary<string, object> {{"placeholder", "Другое"}, {"style", "min-width: 100%;"},})
+                            @Html.ValidationMessageFor(x => x.Other)<br/>
                         </div>
 
                         <input type="submit" value="Добавить" class="btn btn-default" style="padding-bottom: 5px;">
@@ -114,4 +74,3 @@
         $('#AddContactWindow').modal('hide');
     }
 </script>
-
